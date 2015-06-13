@@ -1,0 +1,30 @@
+<ion-view view-title="Main">
+  <ion-content>
+    <p>Stock view: swipe left = downvote, swipe right = upvote</p>
+    
+
+      <td-cards>
+        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+
+          <div class="image" ng-controller="CardCtrl">
+            <div class="no-text">Downvote</div>
+            <img ng-src="{{card.image}}">
+            <div class="yes-text">Upvote</div>
+          </div>
+
+        </td-card>
+      </td-cards>
+
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" ng-click="upvote()">
+        <i class="icon ion-thumbsup"></i>
+        Upvote
+      </a>
+      <a class="tab-item" ng-click="downvote()">
+        <i class="icon ion-thumbsdown"></i>
+        Downvote
+      </a>
+    </div>
+    
+  </ion-content>
+</ion-view>
